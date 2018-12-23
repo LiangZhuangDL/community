@@ -1,0 +1,25 @@
+server:
+  port: 3601
+spring:
+  application:
+    name: authorization-server
+  redis:
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        min-idle: 0
+        max-idle: 8
+unicorn:
+  security:
+    oauth2:
+      storeType: jwt
+      jwtSigningKey: unicorn
+      clients[0]:
+        clientId: webclient1
+        clientSecret: 123456
+      clients[1]:
+        clientId: webclient2
+        clientSecret: 654321
